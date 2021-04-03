@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <title>Servo Controller</title>
+    <script type="text/javascript" src="webiopi.js"></script>
+    <style>
+    body{
+        margin:0;
+        overscroll-behavior-y: none;
+    }
+
+    #myRange1, #myRange2, #myRange3{
+        -webkit-appearance:none;
+        background:#182005;
+        height:10px;
+        width: 30%;
+        border-radius:8px;
+    }
+    input[type=range]::-webkit-slider-thumb{
+        -webkit-appearance:none;
+        background:hsl(182, 90%, 61%);
+        height:50px;
+        width:20px;
+        border-radius:40%;
+        border: 1px solid rgb(66, 32, 129);
+    }
+    input[type=range]::-ms-tooltip{
+        display:none;
+    }
+    input[type=range]::-moz-range-track{
+        height:0;
+    }
+    input[type=range]::-moz-range-thumb{
+        background:#f00;
+        height:20px;
+        width:20px;
+        border:none;
+        border-radius:50%;
+    }
+    
+
+    #myRange1{
+        position:absolute;
+        top:20%;
+        transform:scale(2,2);
+        right:50%;
+    }
+    #out1{
+        transform:scale(2,2);
+        position:absolute;
+        top:20%;
+        right:20%;
+    }
+
+    #myRange2{
+        position:absolute;
+        top:50%;
+        right:50%;
+        transform:scale(2,2);
+        overscroll-behavior-y :none;
+    }
+    #out2{
+        transform:scale(2,2);
+        position:absolute;
+        top:50%;
+        right:20%;
+    } 
+
+    #myRange3{
+        position:absolute;
+        top:80%;
+        right:50%;
+        transform: scale(2, 2);
+        overscroll-behavior-y :none;
+    }
+    #out3{
+        transform:scale(2,2);
+        position:absolute;
+        top:80%;
+        right:20%;
+    } 
+    </style>
+  </head>
+  <body>
+    <div align="center">
+      <a href="menu.html" style="color:black;">menu</a><br>
+        <tr>
+          <td>
+            <table>
+              <tbody>
+                <tr>
+                  <!--SERVO 1-->
+                  <td id="name1">SERVO 1</td>                  
+                  <td class="SS1">                  
+                    <div class="slidecontainer1">
+                      <input type="range" min="1000" max="2500" value="2000" step="10" class="slider" id="myRange1" oninput="func1()">
+                    </div>  
+                  </td>
+                  <td id="out1"></td>
+                  <!--SERVO 2-->
+                  <td id="name2">SERVO 2</td>
+                  <td class="SS2">                  
+                    <div class="slidecontainer2"> 
+                      <input type="range" min="1000" max="2500" value="2000" step="10" class="slider" id="myRange2" oninput="func2()">                                             
+                    </div>  
+                  </td>              
+                  <td id="out2"></td>
+                  <!--SERVO 3-->   
+                  <!--<td id="name3">SERVO 2</td>
+                  <td class="SS3">                  
+                    <div class="slidecontainer3"> 
+                      <input type="range" min="1000" max="2500" value="2000" class="slider" id="myRange3" oninput="func3()">                                             
+                    </div>
+                  </td>
+                  <td id="out3"></td>    -->           
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+    </div>
+<script type="text/javascript">
+ var current1 = document.getElementById("myRange1");    //SERVO1 pin12
+ var output1 = document.getElementById("out1");
+ output1.innerHTML = current1.value;
+
+ var current2 = document.getElementById("myRange2");    //SERVO2 pin19
+ var output2 = document.getElementById("out2");
+ output2.innerHTML = current2.value;
+
+ var current3 = document.getElementById("myRange3");    //SERVO3 pin 21
+ var output3 = document.getElementById("out3");
+ output3.innerHTML = current3.value;
+
+
+ function func1(){
+     output1.innerHTML = current1.value;
+     var se1 = current1.value;
+     webiopi().callMacro('GET1',se1);
+ }
+
+ function func2(){
+     output2.innerHTML = current2.value;
+     var se2 = current2.value;
+     webiopi().callMacro('GET2',se2);
+ }
+
+ function func3(){
+     output3.innerHTML = current3.value;
+     var se3 = current3.value;
+     webiopi().callMacro('GET3',se3);
+ }
+ 
+
+</script>
+  </body>
+</html>
+
+
+
+    

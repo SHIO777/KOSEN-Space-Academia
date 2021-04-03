@@ -1,0 +1,47 @@
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <title>neutral.html</title>
+    <script type="text/javascript" src="webiopi.js"></script>
+    <style type="text/css"></style>
+  </head>
+  <body>
+    <div align="center">
+      <a href="menu.html" style="color:black;">menu</a><br>
+      <table>
+        <tr>
+          <td>
+            <table>
+              <tbody>
+              <tr>
+                <td><input type ="button" value="Shutdown" onClick="Shutdown()" style="WIDTH:150px; font-size:25px; background-color: coral;"></td>
+                <td>シャットダウンするので注意！</td>
+              </tr>
+              <tr>
+                <td><input type ="button" value="Reboot" onClick="Rebo()" style="WIDTH:150px; font-size:25px; background-color: yellowgreen;"></td>
+                <td>再起動するので注意！</td>
+              </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div>
+<script>
+function Shutdown(){
+  var answer = confirm("シャットダウンしますか？");
+  if (answer == true){
+    webiopi().callMacro("ShutCmd");
+  }
+} 
+function Rebo(){
+  var answer = confirm("再起動しますか？");
+  if (answer == true){
+    webiopi().callMacro("RebootCmd");
+  }
+}
+</script>
+  </body>
+</html>
