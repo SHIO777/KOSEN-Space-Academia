@@ -18,3 +18,5 @@ udp.pyから送信されたデータをもとにProcessingで描画
 
 ## webiopi
 Raspberry PiでIoTを簡単に作れるライブラリ[WebIOPi](http://webiopi.trouch.com "WebIOPi HP")を使用。
+詳細はここを参考にしてください。([参考ページ](https://qiita.com/happanosumide/items/7d8bf4b2d537188d9929))
+
