@@ -1,6 +1,6 @@
 """
 2021, Sep
-Author: T.S
+Author: T.S.
 ########################################
 This code handles the wiringpi
 communications between the RaspberryPi and the
@@ -322,7 +322,7 @@ class MPU9250:
             status = self.i2c.readReg8(self.ak8963, 0x02)
 
         # データ読み出し
-        # 2021.09.15 bugfix, change mag_-_high to mag_-_low and vice versa
+        # 2021.09.15 bugfix, change mag_*_high to mag_*_low and vice versa
         mag_x_low = self.i2c.readReg8(self.ak8963, 0x03)
         mag_x_high = self.i2c.readReg8(self.ak8963, 0x04)
         mag_y_low = self.i2c.readReg8(self.ak8963, 0x05)
